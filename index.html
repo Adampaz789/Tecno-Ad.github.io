@@ -5,93 +5,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TecnoAd - Tecnología Moderna</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
     body {
-      background: linear-gradient(135deg, #0d0d0d, #1a0033);
+      background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: #f0f0f0;
       font-family: 'Segoe UI', sans-serif;
+      backdrop-filter: brightness(0.6);
     }
 
     header {
       text-align: center;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
+      padding: 3rem 1rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-bottom: 2px solid #8000ff;
     }
 
     .button_menu {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: #fff;
-      border: none;
       background: transparent;
+      border: none;
+      transition: transform 0.3s ease;
+    }
+
+    .button_menu:hover {
+      transform: rotate(90deg);
     }
 
     #menu img {
       border-radius: 50%;
-      box-shadow: 0 0 20px #8000ff;
+      box-shadow: 0 0 25px #8000ff;
+      transition: transform 0.3s ease;
+    }
+
+    #menu img:hover {
+      transform: scale(1.1);
     }
 
     #menu a {
-      border: none;
-      padding: 0.7rem 1.2rem;
       font-weight: bold;
+      font-size: 1rem;
+      padding: 0.7rem 1.3rem;
+      transition: background 0.3s ease, transform 0.2s;
     }
 
-    #menu a.btn-primary {
-      background-color: #8000ff;
-      border-color: #8000ff;
+    #menu a:hover {
+      transform: scale(1.05);
     }
 
-    #menu a.btn-secondary {
-      background-color: #5c4d91;
-      border-color: #5c4d91;
-    }
+    #menu a.btn-primary { background-color: #8000ff; border-color: #8000ff; }
+    #menu a.btn-secondary { background-color: #5c4d91; border-color: #5c4d91; }
+    #menu a.btn-success { background-color: #4db8ff; border-color: #4db8ff; }
+    #menu a.btn-danger { background-color: #ff4d88; border-color: #ff4d88; }
 
-    #menu a.btn-success {
-      background-color: #4db8ff;
-      border-color: #4db8ff;
-    }
+    h1 { font-size: 3.5rem; color: #bb86fc; }
 
-    #menu a.btn-danger {
-      background-color: #ff4d88;
-      border-color: #ff4d88;
-    }
-
-    h1 {
-      font-size: 3rem;
-      color: #bb86fc;
-    }
+    .lead { color: #ccc; }
 
     .card {
-      background-color: #1f1f2e;
+      background-color: rgba(31, 31, 46, 0.9);
       border: none;
       color: #ddd;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #8000ff;
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px #8000ff;
     }
 
-    .card h2 {
+    .card h2 { color: #bb86fc; }
+
+    footer {
+      background-color: #1a0033;
+      color: #bbb;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      border-top: 2px solid #8000ff;
+    }
+
+    footer a {
       color: #bb86fc;
+      text-decoration: none;
     }
 
-    .lead {
-      color: #ccc;
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .carousel-inner img {
+      height: 400px;
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
 
-  <header class="container">
-    <div class="d-flex justify-content-between align-items-center mb-3">
+  <header class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-3 px-3">
       <button onclick="abrir_cerrar_menu()" class="button_menu" id="boton_menu">☰</button>
     </div>
 
     <nav id="menu" class="text-center mb-4">
-      <img src="logo.png" width="200" height="200" alt="Logo de TecnoAd" class="mb-3">
+      <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png" width="140" height="140" alt="Logo Bootstrap" class="mb-3">
       <ul class="list-unstyled d-flex justify-content-center flex-wrap gap-3">
         <li><a class="btn btn-primary" href="index.html">Inicio</a></li>
         <li><a class="btn btn-secondary" href="galeria.html">Producto</a></li>
@@ -104,8 +122,29 @@
     <p class="lead">Explora las últimas innovaciones, herramientas inteligentes y soluciones que transforman el mundo digital.</p>
   </header>
 
-  <main class="container">
-    <section class="row g-4">
+  <!-- Carrusel -->
+  <div id="carouselTecno" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://images.unsplash.com/photo-1581090700227-1e8eafdd05ef?auto=format&fit=crop&w=1600&q=80" class="d-block w-100" alt="Tech 1">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80" class="d-block w-100" alt="Tech 2">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80" class="d-block w-100" alt="Tech 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselTecno" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselTecno" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <main class="container py-5">
+    <section class="row g-4" id="techCards">
       <div class="col-md-6 col-lg-3">
         <div class="card p-4 h-100">
           <h2 class="h5">Inteligencia Artificial</h2>
@@ -133,7 +172,29 @@
     </section>
   </main>
 
-  <script src="main.js"></script>
+  <footer class="text-center">
+    <p>&copy; 2025 TecnoAd. Todos los derechos reservados.</p>
+    <p>Desarrollado por <a href="#">TecnoAd Web Team</a> | <a href="#">Política de Privacidad</a></p>
+  </footer>
+
+  <script>
+    function abrir_cerrar_menu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('d-none');
+    }
+
+    // Animaciones con ScrollReveal
+    ScrollReveal().reveal('#techCards .card', {
+      delay: 200,
+      distance: '50px',
+      duration: 1000,
+      easing: 'ease-in-out',
+      origin: 'bottom',
+      interval: 200
+    });
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
 </body>
-</html>
+            </html>
